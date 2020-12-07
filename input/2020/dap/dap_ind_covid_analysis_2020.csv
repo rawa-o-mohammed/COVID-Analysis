@@ -1,0 +1,5 @@
+Indicator Group / Sector,research.question,sub.research.question,repeat.for.variable,independent.variable,independent.variable.type,dependent.variable,dependent.variable.type,hypothesis.type
+Risk Profile,% of individuals with a chronic health condition,% of individuals with a chronic health condition,district,population_group,categorical,health_issue.chronic,categorical,direct_reporting
+Risk Profile,% of individuals above the age of 64,% of individuals above the age of 65,district,population_group,categorical,above64,categorical,direct_reporting
+Risk Profile,% of individuals above the age of 64 with a chronic health condition,% of individuals above the age of 64 with a chronic health condition,district,population_group,categorical,above64_with_chronic,categorical,direct_reporting
+Risk Profile,% of individuals above the age of 64 and/or a chronic health condition,% of individuals above the age of 64 and/or a chronic health condition,district,population_group,categorical,above64_or_chronic,categorical,direct_reporting

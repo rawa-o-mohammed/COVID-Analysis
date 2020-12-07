@@ -1,0 +1,7 @@
+"dependent.var","independent.var","dependent.var.value","independent.var.value","numbers","se","min","max","repeat.var","repeat.var.value"
+"c22","population_group","0","idp_in_camp",0.895673738380224,NA,0.878599128788942,0.912748347971505,"all","all"
+"c22","population_group","1","idp_in_camp",0.104326261619776,NA,0.0872516520284946,0.121400871211058,"all","all"
+"c22","population_group","0","idp_out_camp",0.912251336868139,NA,0.895520248046586,0.928982425689691,"all","all"
+"c22","population_group","1","idp_out_camp",0.0877486631318612,NA,0.0710175743103088,0.104479751953413,"all","all"
+"c22","population_group","0","returnee",0.923443352852545,NA,0.904798482930986,0.942088222774104,"all","all"
+"c22","population_group","1","returnee",0.0765566471474552,NA,0.0579117772258964,0.095201517069014,"all","all"

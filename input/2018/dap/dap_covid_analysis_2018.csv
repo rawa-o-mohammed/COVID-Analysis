@@ -1,0 +1,31 @@
+dependent.variable,dependent.variable.type,Indicator Group / Sector,repeat.for.variable,independent.variable,independent.variable.type,hypothesis.type,research.question,sub.research.question
+c13,categorical,Food Security,,population_group,categorical,direct_reporting,"% of households whose average monthly income was less than 480,000 IQD/month per year","% of households whose average monthly income was less than 480,000 IQD/month per year"
+c14,numerical,Food Security,,population_group,categorical,direct_reporting,"% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)","% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)"
+c15,categorical,Food Security,,population_group,categorical,direct_reporting,% of HHs with a poor FCS,% of HHs with a poor FCS
+c16,categorical,Food Security,,population_group,categorical,direct_reporting,"% HH relying on emergency strategies to cope with a lack of resources to meet basic needs. 
+(also analyse for each of the strategies highlighted in red individually)","% HH relying on emergency strategies to cope with a lack of resources to meet basic needs. 
+(also analyse for each of the strategies highlighted in red individually)"
+c17,categorical,Food Security,,population_group,categorical,direct_reporting,"% of HH spending more than 40% of their total expenditure on food
+(for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)","% of HH spending more than 40% of their total expenditure on food
+(for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)"
+c18,categorical,Protection,,population_group,categorical,direct_reporting,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change)
+c21,categorical,Livelihoods,,population_group,categorical,direct_reporting,% HH with at least one adult (18+) unemployed and seeking work,% HH with at least one adult (18+) unemployed and seeking work
+c22,categorical,Livelihoods,,population_group,categorical,direct_reporting,% HH with at least one person under (<18) working,% HH with at least one person under (<18) working
+c25,categorical,Livelihoods,,population_group,categorical,direct_reporting,"% of female headed households whose average monthly income [from employment and pension] was less than 480,000 IQD/month","% of female headed households whose average monthly income [from employment and pension] was less than 480,000 IQD/month"
+c26,categorical,Livelihoods,,population_group,categorical,direct_reporting,% of households relying  on humanitarian assistance as a primary  source of income,% of households relying  on humanitarian assistance as a primary  source of income
+c27,categorical,Livelihoods,,population_group,categorical,direct_reporting,% HH with all working adults in unstable employment,% HH with all working adults in unstable employment
+c28,categorical,Livelihoods,,population_group,categorical,direct_reporting,% HH spending more than 30% of total expenditure on rent,% HH spending more than 30% of total expenditure on rent
+c29,categorical,Livelihoods,,population_group,categorical,direct_reporting,"% HH with debt value > 505,000 IQD ","% HH with debt value > 505,000 IQD "
+c30,categorical,Livelihoods,,population_group,categorical,direct_reporting,"% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)","% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)"
+c32,categorical,Protection,,population_group,categorical,direct_reporting,% HHs reporting risk of eviction,% HHs reporting risk of eviction
+c37,categorical,AAP,,population_group,categorical,direct_reporting,% HH reporting to have received aid ,% HH reporting to have received aid 
+c39,categorical,AAP,,population_group,categorical,direct_reporting,% HH satsified with aid received ,% HH satsified with aid received 
+c40_i,categorical,AAP,,population_group,categorical,direct_reporting,% HH not satsified by reason,"Quality not good enough
+"
+c40_ii,categorical,AAP,,population_group,categorical,direct_reporting,% HH not satsified by reason,Quantity not enough
+c40_iii,categorical,AAP,,population_group,categorical,direct_reporting,% HH not satsified by reason,Delays in delivery of aid
+c40_iv,categorical,AAP,,population_group,categorical,direct_reporting,% HH not satsified by reason,Other
+t6,categorical,Risk Profile,district,population_group,categorical,direct_reporting,"% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food
+","% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food
+"
+t8,categorical,Access to healthcare,district,population_group,categorical,direct_reporting,% of HH spending more than 20% of total expenditure on healthcare,% of HH spending more than 20% of total expenditure on healthcare

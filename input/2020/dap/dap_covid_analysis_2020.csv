@@ -1,0 +1,197 @@
+Indicator Group / Sector,research.question,sub.research.question,repeat.for.variable,independent.variable,independent.variable.type,dependent.variable,dependent.variable.type,hypothesis.type
+Protection,% HH who have received property compensation,"% of hh indicating that housing, land or property they own was damaged or destroyed during the recent conflict (after 2014)",district,population_group,categorical,a0,categorical,direct_reporting
+Protection,% HH who have received property compensation,% of HHs who are aware of property compensation mechanisms,district,population_group,categorical,a1,categorical,direct_reporting
+Protection,% HH who have received property compensation,"% of hh who applied for land, housing or property compensation",district,population_group,categorical,a2,categorical,direct_reporting
+Protection,% HH who have received property compensation,"% of hh who received any cash from the government as a result of your housing, land or property compensation application",district,population_group,categorical,a3,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,Latrines and bathing facilities,district,population_group,categorical,a4,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,Markets,district,population_group,categorical,a5,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,Distribution areas,district,population_group,categorical,a6,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,Water points,district,population_group,categorical,a7,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,social/community areas,district,population_group,categorical,a8,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,on their way to school,district,population_group,categorical,a9,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there,on their way to women community centers/health centres,district,population_group,categorical,a10,categorical,direct_reporting
+Protection,% women and girls who avoid areas because they feel unsafe there as reported by female survey respondents,,district,population_group,categorical,a11,categorical,direct_reporting
+healthcare,% of HH that can access primary healthcare (health clinic and/or hospital) within 30 minutes walk from dwellings,% of HH that can access primary healthcare (health clinic and/or hospital) within 30 minutes walk from dwellings,district,population_group,categorical,a12,categorical,direct_reporting
+Livelihoods,% HH with access to soap and practicing handwashing,% HH with access to soap and practicing handwashing,district,population_group,categorical,a13,categorical,direct_reporting
+healthcare,% HH reporting difficulties in accessing health services,% HH reporting difficulties in accessing health services,district,population_group,categorical,a14,categorical,direct_reporting
+healthcare,Walking distance to the closest hospital providing emergency services,less than 15 minutes,district,population_group,categorical,a15_i,categorical,direct_reporting
+healthcare,Walking distance to the closest hospital providing emergency services,less than 30 minutes,district,population_group,categorical,a15_ii,categorical,direct_reporting
+healthcare,Walking distance to the closest hospital providing emergency services,less than  an hour,district,population_group,categorical,a15_iii,categorical,direct_reporting
+healthcare,Walking distance to the closest hospital providing emergency services,more than  an hour,district,population_group,categorical,a15_iv,categorical,direct_reporting
+Risk Profile,% of HH with a secure Food Security Status (based on Cari),% of HH with a secure Food Security Status (based on Cari),district,population_group,categorical,t1,categorical,direct_reporting
+Risk Profile,% of HH with a marginally secure Food Security Status (based on Cari),% of HH with a marginally secure Food Security Status (based on Cari),district,population_group,categorical,t2,categorical,direct_reporting
+Risk Profile,% of HH with a moderately insecure Food Security Status (based on Cari),% of HH with a moderately insecure Food Security Status (based on Cari),district,population_group,categorical,t3,categorical,direct_reporting
+Risk Profile,% of HH with a severely insecure Food Security Status (based on Cari),% of HH with a severely insecure Food Security Status (based on Cari),district,population_group,categorical,t4,categorical,direct_reporting
+Risk Profile,% of HH with a moderately insecure or severely insecure Food Security Status (based on Cari),% of HH with a moderately insecure or severely insecure Food Security Status (based on Cari),district,population_group,categorical,t5,categorical,direct_reporting
+Risk Profile,"% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food","% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food",district,population_group,categorical,t6,categorical,direct_reporting
+Access to healthcare,% of HH spending more than 20% of total expenditure on healthcare,% of HH spending more than 20% of total expenditure on healthcare,district,population_group,categorical,t8,categorical,direct_reporting
+Access to healthcare,% of HH spending between 0% and 9% of total expenditure on health,% of HH spending between 0% and 9% of total expenditure on health,district,population_group,categorical,t9,categorical,direct_reporting
+Access to healthcare,% of HH spending between 10% and 29% of total expenditure on health,% of HH spending between 10% and 29% of total expenditure on health,district,population_group,categorical,t10,categorical,direct_reporting
+Access to healthcare,% of HH spending more than 29% of total expenditure on health,% of HH spending more than 29% of total expenditure on health,district,population_group,categorical,t11,categorical,direct_reporting
+Access to healthcare,% of individuals that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,% of individuals that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,district,population_group,categorical,c7,numerical,direct_reporting
+Access to healthcare,Number of individuals that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,Number of individuals that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,district,population_group,categorical,c8,numerical,direct_reporting
+Access to healthcare,% HH that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,% HH that can access primary healthcare (health clinic and/or hospital) within one hour's walk from dwellings,district,population_group,categorical,c9,categorical,direct_reporting
+Access to healthcare,"Number of individuals that can access a hospital with emergency, maternity, surgical and pediatric services within one hour's walk from dwellings","Number of individuals that can access a hospital with emergency, maternity, surgical and pediatric services within one hour's walk from dwellings",district,population_group,categorical,c10,numerical,direct_reporting
+Access to healthcare,% HH reporting [type of difficulty] in accessing health services,Cost of services and/or medicine was too high,district,population_group,categorical,c11_i,categorical,direct_reporting
+Access to healthcare,% HH reporting [type of difficulty] in accessing health services,Public health clinic not open,district,population_group,categorical,c11_ii,categorical,direct_reporting
+Access to healthcare,% HH reporting [type of difficulty] in accessing health services,The treatment center was too far away / Transportation constraints,district,population_group,categorical,c11_iii,categorical,direct_reporting
+Access to healthcare,% HH reporting [type of difficulty] in accessing health services,No medicine available at health facility / pharmacy,district,population_group,categorical,c11_iv,categorical,direct_reporting
+Access to healthcare,% HH reporting [type of difficulty] in accessing health services,Required treatment was not available at health facility,district,population_group,categorical,c11_v,categorical,direct_reporting
+Hygiene,Type of practices for which soap is used,Handwashing,district,population_group,categorical,c12_i,categorical,direct_reporting
+Hygiene,Type of practices for which soap is used,Bathing,district,population_group,categorical,c12_ii,categorical,direct_reporting
+Hygiene,Type of practices for which soap is used,Laundry,district,population_group,categorical,c12_iii,categorical,direct_reporting
+Hygiene,Type of practices for which soap is used,Dish washing,district,population_group,categorical,c12_iv,categorical,direct_reporting
+Hygiene,Type of practices for which soap is used,Don't use soap,district,population_group,categorical,c12_v,categorical,direct_reporting
+Hygiene,% of households satisfied with regards to access to hygiene items,% of households satisfied with regards to access to hygiene items,district,population_group,categorical,c13,categorical,direct_reporting
+Food Security,"% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)","% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)",district,population_group,categorical,c14,categorical,direct_reporting
+Food Security,% of HHs with a poor FCS,% of HHs with a poor FCS,district,population_group,categorical,c15_1,categorical,direct_reporting
+Food Security,"% of HHs by FCS category (poor, acceptable and borderline)",Poor,district,population_group,categorical,c15_2_i,categorical,direct_reporting
+Food Security,"% of HHs by FCS category (poor, acceptable and borderline)",Acceptable,district,population_group,categorical,c15_2_i,categorical,direct_reporting
+Food Security,"% of HHs by FCS category (poor, acceptable and borderline)",Borderline,district,population_group,categorical,c15_2_i,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs.,"Selling household properties (refrigerator, television, jewelry…)",district,population_group,categorical,c16_i,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs.,Buying food on credit or through borrowed money from relatives and friends,district,population_group,categorical,c16_ii,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs.,"Reducing expenditure on non-food items (health, education)",district,population_group,categorical,c16_iii,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs.,Accepting that adults engage in risky behavior,district,population_group,categorical,c16_iv,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs.,Children under 18 work to provide resources,district,population_group,categorical,c16_v,categorical,direct_reporting
+Food Security,% of HH spending more than 40% of their total expenditure on food,% of HH spending more than 40% of their total expenditure on food,district,population_group,categorical,c17,categorical,direct_reporting
+Food Security,% of HH spending between 0%-19.9% of their total expenditure on food,% of HH spending between 0%-19.9% of their total expenditure on food,district,population_group,categorical,c17_i,categorical,direct_reporting
+Food Security,% of HH spending between 20%-39.9% of their total expenditure on food,% of HH spending between 20%-39.9% of their total expenditure on food,district,population_group,categorical,c17_ii,categorical,direct_reporting
+Food Security,% of HH spending between 40%-59.9% of their total expenditure on food,% of HH spending between 40%-59.9% of their total expenditure on food,district,population_group,categorical,c17_iii,categorical,direct_reporting
+Food Security,% of HH spending between 60%-79.9% of their total expenditure on food,% of HH spending between 60%-79.9% of their total expenditure on food,district,population_group,categorical,c17_iv,categorical,direct_reporting
+Food Security,% of HH spending between 80%-100% of their total expenditure on food,% of HH spending between 80%-100% of their total expenditure on food,district,population_group,categorical,c17_v,categorical,direct_reporting
+Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,population_group,categorical,c18_i,categorical,direct_reporting
+Protection,% HH with children with psychosocial distress (proxy data with behaviour change),Number of children with psychosocial distress (proxy data with behaviour change),district,population_group,categorical,c18_ii,numerical,direct_reporting
+Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,population_group,categorical,c19_i,categorical,direct_reporting
+Protection,% HH with adults with psychosocial distress (proxy data with behavior change),Number of adults with psychosocial distress (proxy data with behavior change),district,population_group,categorical,c19_ii,numerical,direct_reporting
+Livelihoods,% HH with at least one adult (18+) unemployed and seeking work,% HH with at least one adult (18+) unemployed and seeking work,district,population_group,categorical,c21,categorical,direct_reporting
+Livelihoods,% HH with at least one person under (<18) working,% HH with at least one person under (<18) working,district,population_group,categorical,c22,categorical,direct_reporting
+Livelihoods,Main barriers to employment (only for barriers highlighted in red),"Increased competition for jobs, not enough jobs",district,population_group,categorical,c23_i,categorical,direct_reporting
+Livelihoods,Main barriers to employment (only for barriers highlighted in red),Available jobs are too far away,district,population_group,categorical,c23_ii,categorical,direct_reporting
+Livelihoods,Main barriers to employment (only for barriers highlighted in red),"Only low-skilled, socially degrading or low-paying jobs",district,population_group,categorical,c23_iii,categorical,direct_reporting
+Livelihoods,Main barriers to employment (only for barriers highlighted in red),Lack of livelihood/employment opportunities for women,district,population_group,categorical,c23_iv,categorical,direct_reporting
+Livelihoods,"% of households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",poor,district,population_group,categorical,c24_i,categorical,direct_reporting
+Livelihoods,"% of households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",bordeline,district,population_group,categorical,c24_ii,categorical,direct_reporting
+Livelihoods,"% of households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",acceptable,district,population_group,categorical,c24_iii,categorical,direct_reporting
+Livelihoods,"% of single female headed households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",poor,district,population_group,categorical,c25_i,categorical,direct_reporting
+Livelihoods,"% of single female headed households whose average monthly income [from employment and pension] was betweem 480,000 and 800,000 IQD/month",bordeline,district,population_group,categorical,c25_ii,categorical,direct_reporting
+Livelihoods,"% of single female headed households whose average monthly income [from employment and pension] was more than 800,000 IQD/month",acceptable,district,population_group,categorical,c25_iii,categorical,direct_reporting
+Livelihoods,% of households relying on humanitarian assistance as a primary source of income,% of households relying on humanitarian assistance as a primary source of income,district,population_group,categorical,c26,categorical,direct_reporting
+Livelihoods,% HH with all working adults in unstable employment,% HH with all working adults in unstable employment,district,population_group,categorical,c27,categorical,direct_reporting
+Livelihoods,% HH spending more than 30% of total expenditure on rent,% HH spending more than 30% of total expenditure on rent,district,population_group,categorical,c28,categorical,direct_reporting
+Livelihoods,% of HH spending between 0%-19.9% of their total expenditure on rent,% of HH spending between 0%-19.9% of their total expenditure on rent,district,population_group,categorical,c28_i,categorical,direct_reporting
+Livelihoods,% of HH spending between 20%-39.9% of their total expenditure on rent,% of HH spending between 20%-39.9% of their total expenditure on rent,district,population_group,categorical,c28_ii,categorical,direct_reporting
+Livelihoods,% of HH spending between 40%-59.9% of their total expenditure on rent,% of HH spending between 40%-59.9% of their total expenditure on rent,district,population_group,categorical,c28_iii,categorical,direct_reporting
+Livelihoods,% of HH spending between 60%-79.9% of their total expenditure on rent,% of HH spending between 60%-79.9% of their total expenditure on rent,district,population_group,categorical,c28_iv,categorical,direct_reporting
+Livelihoods,% of HH spending between 80%-100% of their total expenditure on rent,% of HH spending between 80%-100% of their total expenditure on rent,district,population_group,categorical,c28_v,categorical,direct_reporting
+Livelihoods,"% HH with debt value < 505,000 IQD",poor,district,population_group,categorical,c29_i,categorical,direct_reporting
+Livelihoods,"% HH with debt value > 505,000 IQD",bordeline,district,population_group,categorical,c29_ii,categorical,direct_reporting
+Livelihoods,"% HH with debt value > 505,000 IQD",acceptable,district,population_group,categorical,c29_iii,categorical,direct_reporting
+Livelihoods,"% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)","% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)",district,population_group,categorical,c30_1,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Basic household expenditure,district,population_group,categorical,c30_2_i,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Health,district,population_group,categorical,c30_2_ii,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Food,district,population_group,categorical,c30_2_iii,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Education,district,population_group,categorical,c30_2_iv,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Clothing,district,population_group,categorical,c30_2_v,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.,Purchasing productive assets,district,population_group,categorical,c30_2_vi,categorical,direct_reporting
+Livelihoods,% of HH reporting members losing jobs permanently or temporarily as a result of the Covid-19 outbreak,% of HH reporting members losing jobs permanently or temporarily as a result of the Covid-19 outbreak,district,population_group,categorical,c31_1,categorical,direct_reporting
+Livelihoods,% of HH reporting members losing jobs permanently as a result of the Covid-19 outbreak,% of HH reporting members losing jobs permanently as a result of the Covid-19 outbreak,district,population_group,categorical,c31_2,categorical,direct_reporting
+Livelihoods,% of HH reporting members losing jobs temporarily as a result of the Covid-19 outbreak,% of HH reporting members losing jobs temporarily as a result of the Covid-19 outbreak,district,population_group,categorical,c31_3,categorical,direct_reporting
+Protection,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,population_group,categorical,c32,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Lack of funds to pay rental costs,district,population_group,categorical,c33_i,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Host family no longer able to host our family,district,population_group,categorical,c33_ii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),No valid tenancy agreement,district,population_group,categorical,c33_iii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - what (only for information needs highlighted in red),Healthcare,district,population_group,categorical,c34_i,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - what (only for information needs highlighted in red),Humanitarian assistance,district,population_group,categorical,c34_ii,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19,% of HHs reporting needing more information about COVID-20,district,population_group,categorical,c35_1,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Causes,district,population_group,categorical,c35_2_i,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Signs and symptoms,district,population_group,categorical,c35_2_ii,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Preventions measures,district,population_group,categorical,c35_2_iii,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Treatment options,district,population_group,categorical,c35_2_iv,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Health consequences of contracting COVID-19,district,population_group,categorical,c35_2_v,categorical,direct_reporting
+AAP,% of HHs reporting needing more information about COVID-19 by type of information,Other,district,population_group,categorical,c35_2_vi,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Direct observation,district,population_group,categorical,c36_i,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Face-to-face communication,district,population_group,categorical,c36_ii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Television,district,population_group,categorical,c36_iii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Telephone/mobile phone (voice call),district,population_group,categorical,c36_iv,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Mobile phone (text SMS),district,population_group,categorical,c36_v,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Facebook (app),district,population_group,categorical,c36_vi,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Facebook (messenger),district,population_group,categorical,c36_vii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Whatsapp,district,population_group,categorical,c36_viii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Viber,district,population_group,categorical,c36_ix,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,"Other social networks (skype, instagram, twitter)",district,population_group,categorical,c36_x,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Notice boards and posters,district,population_group,categorical,c36_xi,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Newspapers and magazines,district,population_group,categorical,c36_xii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Printed leaflet,district,population_group,categorical,c36_xiii,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Loud speakers,district,population_group,categorical,c36_xiv,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Radio,district,population_group,categorical,c36_xv,categorical,direct_reporting
+AAP,Information needs and preferences from aid providers - means,Other,district,population_group,categorical,c36_xvi,categorical,direct_reporting
+AAP,% HH reporting to have received aid,% HH reporting to have received aid,district,population_group,categorical,c37,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Cash,district,population_group,categorical,c38_i,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Food,district,population_group,categorical,c38_ii,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Water,district,population_group,categorical,c38_iii,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Fuel,district,population_group,categorical,c38_iv,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Shelter,district,population_group,categorical,c38_v,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Seasonal items,district,population_group,categorical,c38_vi,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Health services,district,population_group,categorical,c38_vii,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Education services,district,population_group,categorical,c38_viii,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Other non-food items,district,population_group,categorical,c38_ix,categorical,direct_reporting
+AAP,% HH reporting to have received [type of aid],Protection/legal services,district,population_group,categorical,c38_x,categorical,direct_reporting
+AAP,% HH satsified with aid received,% HH satsified with aid received,district,population_group,categorical,c39,categorical,direct_reporting
+AAP,% HH not satsified by reason,Quality not good enough,district,population_group,categorical,c40_i,categorical,direct_reporting
+AAP,% HH not satsified by reason,Quantity not enough,district,population_group,categorical,c40_ii,categorical,direct_reporting
+AAP,% HH not satsified by reason,Delays in delivery of aid,district,population_group,categorical,c40_iii,categorical,direct_reporting
+AAP,% HH not satsified by reason,Other,district,population_group,categorical,c40_iv,categorical,direct_reporting
+AAP,% HH with acces/knowledge of complaint mechanisms,% HH with acces/knowledge of complaint mechanisms,district,population_group,categorical,c41,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,% HHs experiencing daytime movement restrictions related to covid,district,population_group,categorical,c42,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,Needing to obtain security clearance / coupons,district,population_group,categorical,c42_i,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,Needing to show ID documents to civilian authorities or security actors,district,population_group,categorical,c42_ii,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,Time restrictions on when to leave and return,district,population_group,categorical,c42_iii,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,"Needing to provide a specific reason for movement (employment, medical, school)",district,population_group,categorical,c42_iv,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,Physical road blocks,district,population_group,categorical,c42_v,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions related to covid,Other,district,population_group,categorical,c42_vi,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,% HHs experiencing daytime movement restrictions related to covid,district,population_group,categorical,c42_2,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,Needing to obtain security clearance / coupons,district,population_group,categorical,c42_2_i,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,Needing to show ID documents to civilian authorities or security actors,district,population_group,categorical,c42_2_ii,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,Time restrictions on when to leave and return,district,population_group,categorical,c42_2_iii,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,"Needing to provide a specific reason for movement (employment, medical, school)",district,population_group,categorical,c42_2_iv,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,Physical road blocks,district,population_group,categorical,c42_2_v,categorical,direct_reporting
+Protection,% HHs experiencing daytime movement restrictions not related to covid,Other,district,population_group,categorical,c42_2_vi,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Saving,district,population_group,categorical,c43_i,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,"Income from renting out house, land or property",district,population_group,categorical,c43_ii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Employment,district,population_group,categorical,c43_iii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Remittances,district,population_group,categorical,c43_iv,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Retirement fund or pension,district,population_group,categorical,c43_v,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Selling household assets,district,population_group,categorical,c43_vi,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Selling assistance received,district,population_group,categorical,c43_vii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,"Loans, debts",district,population_group,categorical,c43_viii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,MODM cash assistance,district,population_group,categorical,c43_ix,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,"Support from community, friends, family",district,population_group,categorical,c43_x,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,NGO or charity assistance,district,population_group,categorical,c43_xi,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Social service (disability allowance),district,population_group,categorical,c43_xii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,"Illegal or socially degrading activities (e.g. unlawful sales, begging, etc.)",district,population_group,categorical,c43_xiii,categorical,direct_reporting
+Livelihoods,% HHs have primary income sources from:,Zakat,district,population_group,categorical,c43_xiv,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Saving,district,population_group,categorical,c43_2_i,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,"Income from renting out house, land or property",district,population_group,categorical,c43_2_ii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Employment,district,population_group,categorical,c43_2_iii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Remittances,district,population_group,categorical,c43_2_iv,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Retirement fund or pension,district,population_group,categorical,c43_2_v,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Selling household assets,district,population_group,categorical,c43_2_vi,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Selling assistance received,district,population_group,categorical,c43_2_vii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,"Loans, debts",district,population_group,categorical,c43_2_viii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,MODM cash assistance,district,population_group,categorical,c43_2_ix,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,"Support from community, friends, family",district,population_group,categorical,c43_2_x,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,NGO or charity assistance,district,population_group,categorical,c43_2_xi,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Social service (disability allowance),district,population_group,categorical,c43_2_xii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,"Illegal or socially degrading activities (e.g. unlawful sales, begging, etc.)",district,population_group,categorical,c43_2_xiii,categorical,direct_reporting
+Livelihoods,% of single headed households indicating [income source] as primary income source:,Zakat,district,population_group,categorical,c43_2_xiv,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest health clinic and/or hospital,0-14 min,district,population_group,categorical,c44_i,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest health clinic and/or hospital,15- 29 min,district,population_group,categorical,c44_ii,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest health clinic and/or hospital,30-60 min,district,population_group,categorical,c44_iii,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest health clinic and/or hospital,< 3 hours,district,population_group,categorical,c44_iv,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest health clinic and/or hospital,> 3 hours,district,population_group,categorical,c44_v,categorical,direct_reporting
+AAP,% of households reporting Healthcare as primary information need,% of households reporting Healthcare as primary information need,district,population_group,categorical,c45,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest hospital,0-14 min,district,population_group,categorical,c46_i,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest hospital,15- 29 min,district,population_group,categorical,c46_ii,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest hospital,30-60 min,district,population_group,categorical,c46_iii,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest hospital,< 3 hours,district,population_group,categorical,c46_iv,categorical,direct_reporting
+Access to healthcare,% HHs that with walking distance to the closest hospital,> 3 hours,district,population_group,categorical,c46_v,categorical,direct_reporting

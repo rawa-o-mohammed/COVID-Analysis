@@ -1,0 +1,5 @@
+"dependent.var","independent.var","dependent.var.value","independent.var.value","numbers","se","min","max","repeat.var","repeat.var.value"
+"health_issue.chronic","all",1,"all",0.106813699905582,NA,0.100628096963252,0.112999302847913,"all","all"
+"above64","all",1,"all",0.0181790533664075,NA,0.015628165466976,0.0207299412658389,"all","all"
+"above64_with_chronic","all",1,"all",0.0131517195277858,NA,0.0110573152376202,0.0152461238179513,"all","all"
+"above64_or_chronic","all",1,"all",0.111841033744204,NA,0.105516077236935,0.118165990251473,"all","all"

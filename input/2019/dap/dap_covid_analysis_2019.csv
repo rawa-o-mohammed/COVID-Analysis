@@ -1,0 +1,64 @@
+Indicator Group / Sector,research.question,sub.research.question,repeat.for.variable,independent.variable,independent.variable.type,dependent.variable,dependent.variable.type,hypothesis.type
+Security,Sub-indicator: % HH with at least one child missing a key document,Sub-indicator: % HH with at least one child missing a key document,district,population_group,categorical,c,categorical,direct_reporting
+Risk Profile,% of HH with a moderately insecure or severely insecure Food Security Status (based on Cari),% of HH with a moderately insecure or severely insecure Food Security Status (based on Cari),district,population_group,categorical,t5,categorical,direct_reporting
+Risk Profile,"% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food
+","% of HH relying on negative coping strategies (stress, crisis or emergency) to cope with a lack of food or money to buy food
+",district,population_group,categorical,t6,categorical,direct_reporting
+Access to healthcare,% of HH spending more than 20% of total expenditure on healthcare,% of HH spending more than 20% of total expenditure on healthcare,district,population_group,categorical,t8,categorical,direct_reporting
+Food Security,"% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)","% HH with ""moderately insecure"" or ""severely insecure"" food security status, using CARI Analysis (composite using FCS, food expenditure share, and CS categories)",district,country,categorical,c14,categorical,direct_reporting
+Food Security,% of HHs with a poor FCS,% of HHs with a poor FCS,district,country,categorical,c15,categorical,direct_reporting
+Food Security,"% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. 
+(also analyse for each of the strategies highlighted in red individually)","% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. 
+(also analyse for each of the strategies highlighted in red individually)",district,country,categorical,c16,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. ,"Selling household properties (refrigerator, television, jewelry…)",district,country,categorical,c16_i,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. ,Buying food on credit or through borrowed money from relatives and friends,district,country,categorical,c16_ii,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. ,"Reducing expenditure on non-food items (health, education)",district,country,categorical,c16_iii,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. ,Accepting that adults engage in risky behavior,district,country,categorical,c16_iv,categorical,direct_reporting
+Food Security,% HH relying on stress / crisis / emergency strategies to cope with a lack of resources to meet basic needs. ,Children under 18 work to provide resources,district,country,categorical,c16_v,categorical,direct_reporting
+Food Security,"% of HH spending more than 40% of their total expenditure on food
+(for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)","% of HH spending more than 40% of their total expenditure on food
+(for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)",district,country,categorical,c17,categorical,direct_reporting
+Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_i,categorical,direct_reporting
+Protection,Number of children with psychosocial distress (proxy data with behaviour change),Number of children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_ii,numerical,direct_reporting
+Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_i,categorical,direct_reporting
+Protection,Number of adults with psychosocial distress (proxy data with behavior change),Number of adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_ii,numerical,direct_reporting
+Protection,% HHs with at least one person (adult OR child) with signs of psychosocial distress,% HHs with at least one person (adult OR child) with signs of psychosocial distress,district,country,categorical,c20,categorical,direct_reporting
+Livelihoods,% HH with at least one adult (18+) unemployed and seeking work,% HH with at least one adult (18+) unemployed and seeking work,district,country,categorical,c21,categorical,direct_reporting
+Livelihoods,% HH with at least one person under (<18) working,% HH with at least one person under (<18) working,district,country,categorical,c22,categorical,direct_reporting
+Livelihoods,"% of households whose average monthly income [from employment and pension] was less than 480,000 IQD/month","% of households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",district,country,categorical,c24,categorical,direct_reporting
+Livelihoods,"% of single female headed households whose average monthly income [from employment and pension] was less than 480,000 IQD/month","% of single female headed households whose average monthly income [from employment and pension] was less than 480,000 IQD/month",district,country,categorical,c25,categorical,direct_reporting
+Livelihoods,% of households relying  on humanitarian assistance as a primary  source of income,% of households relying  on humanitarian assistance as a primary  source of income,district,country,categorical,c26,categorical,direct_reporting
+Livelihoods,% HH with all working adults in unstable employment,% HH with all working adults in unstable employment,district,country,categorical,c27,categorical,direct_reporting
+Livelihoods,% HH spending more than 30% of total expenditure on rent,% HH spending more than 30% of total expenditure on rent,district,country,categorical,c28,categorical,direct_reporting
+Livelihoods,"% HH with debt value > 505,000 IQD ","% HH with debt value > 505,000 IQD ",district,country,categorical,c29,categorical,direct_reporting
+Livelihoods,"% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)","% HH unable to afford basic needs (% HH taking on debt due to healthcare, food, education, or basic household expenditures)",district,country,categorical,c30_1,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Basic household expenditure,district,country,categorical,c30_2_i,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Health,district,country,categorical,c30_2_ii,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Food,district,country,categorical,c30_2_iii,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Education,district,country,categorical,c30_2_iv,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Clothing,district,country,categorical,c30_2_v,categorical,direct_reporting
+Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Purchasing productive assets,district,country,categorical,c30_2_vi,categorical,direct_reporting
+Protection,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c32,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Lack of funds to pay rental costs,district,country,categorical,c33_i,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Host family no longer able to host our family,district,country,categorical,c33_ii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),No valid tenancy agreement,district,country,categorical,c33_iii,categorical,direct_reporting
+AAP,% HH reporting to have received aid ,% HH reporting to have received aid ,district,country,categorical,c37,categorical,direct_reporting
+AAP,% HH reporting to have received aid ,Healthcare,district,country,categorical,c38,categorical,direct_reporting
+AAP,% HH satsified with aid received ,% HH satsified with aid received ,district,country,categorical,c39,categorical,direct_reporting
+AAP,% HH not satsified by reason,"Quality not good enough
+",district,country,categorical,c40_i,categorical,direct_reporting
+AAP,% HH not satsified by reason,Quantity not enough,district,country,categorical,c40_ii,categorical,direct_reporting
+AAP,% HH not satsified by reason,Delays in delivery of aid,district,country,categorical,c40_iii,categorical,direct_reporting
+AAP,% HH not satsified by reason,Other,district,country,categorical,c40_iv,categorical,direct_reporting
+AAP,"% of households reporting ""health care"" as primary information need","% of households reporting ""health care"" as primary information need",district,country,categorical,c45,categorical,direct_reporting
+Protection,% of households reporting movement restrictions,% of households reporting movement restrictions,district,country,categorical,c46,categorical,direct_reporting
+Livelihoods,% of households with at least one adult unemployed by barrier ,"Increased competition for jobs, not enough jobs available",district,country,categorical,c47_i,categorical,direct_reporting
+Livelihoods,% of households with at least one adult unemployed by barrier ,Lack of family/personal connections,district,country,categorical,c47_ii,categorical,direct_reporting
+Livelihoods,% of households with at least one adult unemployed by barrier ,Underqualified for available jobs,district,country,categorical,c47_iii,categorical,direct_reporting
+Livelihoods,% of households with at least one adult unemployed by barrier ,Physical distance to jobs,district,country,categorical,c47_iv,categorical,direct_reporting
+Livelihoods,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c48,categorical,direct_reporting
+Healthcare,% HH reporting [type of difficulty] in accessing health services,Cost of services and/or medicine was too high,district,country,categorical,c49_i,categorical,direct_reporting
+Healthcare,% HH reporting [type of difficulty] in accessing health services,No medicine available at health facility/pharmacy,district,country,categorical,c49_ii,categorical,direct_reporting
+Healthcare,% HH reporting [type of difficulty] in accessing health services,Required treatment was not available at health facility,district,country,categorical,c49_iii,categorical,direct_reporting
+Healthcare,% HH reporting [type of difficulty] in accessing health services,The treatment center was too far away and/or transportation constraints,district,country,categorical,c49_iv,categorical,direct_reporting
+Healthcare,% HH reporting [type of difficulty] in accessing health services,Public health clinic was not open,district,country,categorical,c49_v,categorical,direct_reporting

@@ -14,11 +14,11 @@ library(readxl)
 aggregate <- "all"
 disaggregate <- "all"
 
-dap_name <- "covid_analysis_2020_last"
+dap_name <- "covid_analysis_2020"
 name <- sprintf("covid_analysis_2020_%s_%s", aggregate, disaggregate)
 source("COVID_factsheet_2020.R")
 
-dap_name <- "covid_analysis_2019_last"
+dap_name <- "covid_analysis_2019"
 name <- sprintf("covid_analysis_2019_%s_%s", aggregate, disaggregate)
 source("COVID_factsheet_2019.R")
 

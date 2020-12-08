@@ -18,10 +18,8 @@ Food Security,% HH relying on stress / crisis / emergency strategies to cope wit
 Food Security,"% of HH spending more than 40% of their total expenditure on food
 (for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)","% of HH spending more than 40% of their total expenditure on food
 (for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)",district,country,categorical,c17,categorical,direct_reporting
-Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_i,categorical,direct_reporting
-Protection,Number of children with psychosocial distress (proxy data with behaviour change),Number of children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_ii,numerical,direct_reporting
-Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_i,categorical,direct_reporting
-Protection,Number of adults with psychosocial distress (proxy data with behavior change),Number of adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_ii,numerical,direct_reporting
+Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18,categorical,direct_reporting
+Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19,categorical,direct_reporting
 Protection,% HHs with at least one person (adult OR child) with signs of psychosocial distress,% HHs with at least one person (adult OR child) with signs of psychosocial distress,district,country,categorical,c20,categorical,direct_reporting
 Livelihoods,% HH with at least one adult (18+) unemployed and seeking work,% HH with at least one adult (18+) unemployed and seeking work,district,country,categorical,c21,categorical,direct_reporting
 Livelihoods,% HH with at least one person under (<18) working,% HH with at least one person under (<18) working,district,country,categorical,c22,categorical,direct_reporting

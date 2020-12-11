@@ -1,25 +1,27 @@
 covid_recoding_2019 <- function(df, loop) {
   ############################c14 for 2019 ######################################
-  df <- df %>%
-    new_recoding(target = c) %>%
-    recode_to(
-      1,
-      where = passport_u18 == "no" |
-        id_card_u18 == "no" |
-        citizenship_u18 == "no" | birth_cert_u18 == "no" |
-        marriage_cert_u18 == "non_valid" |
-        divorce_cert_u18 == "non_valid"
-    ) %>%
-    recode_to(
-      0,
-      where = !(
-        passport_u18 == "no" |
-          id_card_u18 == "no" |
-          citizenship_u18 == "no" | birth_cert_u18 == "no" |
-          marriage_cert_u18 == "non_valid" |
-          divorce_cert_u18 == "non_valid"
-      )
-    )
+  df <- df 
+  ###YS this is using the composr package which is not maintained anymore. to be recoded with dplyr
+    # %>%
+    # new_recoding(target = c) %>%
+    # recode_to(
+    #   1,
+    #   where = passport_u18 == "no" |
+    #     id_card_u18 == "no" |
+    #     citizenship_u18 == "no" | birth_cert_u18 == "no" |
+    #     marriage_cert_u18 == "non_valid" |
+    #     divorce_cert_u18 == "non_valid"
+    # ) %>%
+    # recode_to(
+    #   0,
+    #   where = !(
+    #     passport_u18 == "no" |
+    #       id_card_u18 == "no" |
+    #       citizenship_u18 == "no" | birth_cert_u18 == "no" |
+    #       marriage_cert_u18 == "non_valid" |
+    #       divorce_cert_u18 == "non_valid"
+    #   )
+    # )
     
     
     df$stress <-
@@ -135,27 +137,27 @@ covid_recoding_2019 <- function(df, loop) {
     df$c17 <-
       ifelse(df$tot_expenditure * 0.4 <= df$food_exp, 1, 0)
     
-    #not validated
+    #not validated - ok 
     df$c18_i <-     ifelse(df$child_distress_number < 1 |
                              is.na(df$child_distress_number),
                            0,
                            1)
     
-    #not validated
+    #not validated - ok 
     df$c18_ii <- df$child_distress_number
     
     ############################c19 ###############################################
     
-    #not validated
+    #not validated - ok
     df$c19_i <-
       ifelse(df$adult_distress_number < 1 |
                is.na(df$adult_distress_number),
              0,
              1)
-    #not validated
+    #not validated - ok
     df$c19_ii <- df$adult_distress_number
     
-    #not validated
+    #not validated - ok
     df$c20 <- ifelse((
       df$adult_distress_number < 1 |
         is.na(df$adult_distress_number)
@@ -209,7 +211,8 @@ covid_recoding_2019 <- function(df, loop) {
     
     df$c27 <- ifelse(df$employment_seasonal == "yes", 1, 0)
     
-    #not validated
+    #not validated - 
+    ###YS indicators says % HH spending more than 30% of total expenditure on rent
     df$c28 <-
       ifelse(df$tot_expenditure * 0.3 <= df$rent_exp, 1, 0)
     
@@ -227,34 +230,34 @@ covid_recoding_2019 <- function(df, loop) {
     
     df$c30_2_i <-
       ifelse(df$reasons_for_debt == "basic_hh_expenditure", 1, 0)
-    #not validated
+    #not validated - YS
     df$c30_2_ii <- ifelse(df$reasons_for_debt == "health", 1, 0)
-    #not validated
+    #not validated - YS
     df$c30_2_iii <- ifelse(df$reasons_for_debt == "food", 1, 0)
-    #not validated
+    #not validated - YS
     df$c30_2_iv <-
       ifelse(df$reasons_for_debt == "education", 1, 0)
-    #not validated
+    #not validated - YS
     df$c30_2_v <-
       ifelse(df$reasons_for_debt == "clothing", 1, 0)
-    #not validated
+    #not validated - YS
     df$c30_2_vi <-
       ifelse(df$reasons_for_debt == "purchase_pro_assets", 1, 0)
     
-    #not validated
+    #not validated - ok
     df$c32 <- ifelse(df$hh_risk_eviction == "yes", 1, 0)
     
     ############################c33 ###############################################
     
-    #not validated
+    #not validated - ok 
     df$c33_i   <- ifelse(df$hh_main_risks.lack_funds == 1, 1, 0)
-    #not validated
+    #not validated - ok 
     df$c33_ii  <-
       ifelse(df$hh_main_risks.no_longer_hosted == 1, 1, 0)
-    #not validated
+    #not validated - ok
     df$c33_iii <-
       ifelse(df$hh_main_risks.no_agreement == 1, 1, 0)
-    #not validated
+    #not validated - ok (not present in dap)
     df$c33_iv <-
       ifelse(df$hh_main_risks.owner_request == 1, 1, 0)
     
@@ -273,6 +276,7 @@ covid_recoding_2019 <- function(df, loop) {
                      ))
     
     #not validated
+    ###YS looking for quantity not quality
     df$c40_i  <- case_when(
       df$aid_not_satisfied.quantity == 1 ~ 1,
       (df$aid_received == "yes" &
@@ -280,7 +284,7 @@ covid_recoding_2019 <- function(df, loop) {
         df$aid_not_satisfied.quantity == 0 ~ 0,
       TRUE ~  NA_real_
     )
-    #not validated
+    #not validated - ok
     df$c40_ii <- case_when(
       df$aid_not_satisfied.quantity == 1 ~ 1,
       (df$aid_received == "yes" &
@@ -289,6 +293,7 @@ covid_recoding_2019 <- function(df, loop) {
       TRUE ~  NA_real_
     )
     #not validated
+    ###YS looking for quantity not delay
     df$c40_iii <- case_when(
       df$aid_not_satisfied.quantity == 1 ~ 1,
       (df$aid_received == "yes" &
@@ -297,6 +302,7 @@ covid_recoding_2019 <- function(df, loop) {
       TRUE ~  NA_real_
     )
     #not validated
+    ###YS looking for quantity not others
     df$c40_iv <- case_when(
       df$aid_not_satisfied.quantity == 1 ~ 1,
       (df$aid_received == "yes" &
@@ -306,7 +312,7 @@ covid_recoding_2019 <- function(df, loop) {
     )
     
     df$c45 <- df$info_aid.healthcare
-    #not validated
+    #not validated - ok
     df$c46 <- case_when(
       df$restriction_clearance == "yes" |
         df$restriction_documents == "yes" |
@@ -324,26 +330,30 @@ covid_recoding_2019 <- function(df, loop) {
     )
     
     #not validated
+    ### YS including NAs a 0
     df$c47_i <-
       ifelse(df$employment_primary_barriers.increased_competition == 1,
              1,
              0)
     #not validated
+    ### YS including NAs a 0
     df$c47_ii <-
       ifelse(df$employment_primary_barriers.lack_of_connections  == 1,
              1,
              0)
     #not validated
+    ### YS including NAs a 0
     df$c47_iii <-
       ifelse(df$employment_primary_barriers.underqualified_for_jobs == 1,
              1,
              0)
     #not validated
+    ### YS including NAs a 0
     df$c47_iv <-
       ifelse(df$employment_primary_barriers.jobs_far == 1, 1, 0)
     
     
-    #not validated
+    #not validated -- not what's in the dap. risk of evection was also calculated above.
     df$c48 <-
       case_when(
         df$hh_risk_eviction == "yes" &
@@ -354,19 +364,24 @@ covid_recoding_2019 <- function(df, loop) {
       )
     
     #not validated
+    ###YS includes NA while in 2020 it does not
     df$c49_i <- ifelse(df$health_barriers.cost %in% c(NA, 0), 0, 1)
     #not validated
+    ###YS includes NA while in 2020 it does not
     df$c49_ii <-
       ifelse(df$health_barriers.no_medicine %in% c(NA, 0), 0, 1)
     #not validated
+    ###YS includes NA while in 2020 it does not
     df$c49_iii <-
       ifelse(df$health_barriers.no_offered_treatment %in% c(NA, 0), 0, 1)
     #not validated
+    ###YS includes NA while in 2020 it does not
     df$c49_iv <-
       ifelse(df$health_barriers.distance_to_treatmentcenter %in% c(NA, 0),
              0,
              1)
     #not validated
+    ###YS includes NA while in 2020 it does not
     df$c49_v <-
       ifelse(df$health_barriers.phc_closed %in% c(NA, 0), 0, 1)
     

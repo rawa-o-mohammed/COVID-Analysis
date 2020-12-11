@@ -1,3 +1,4 @@
+setwd("C:/Users/Yann SAY/Desktop/validation/COVID-Analysis")
 rm(list = ls(all = T))
 library(xlsx)
 library(plyr)

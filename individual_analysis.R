@@ -16,82 +16,58 @@ source("functions/2020/postprocessing_functions.R")
 #LOAD INPUT FILES
 source("functions/2020/1_load_inputs.R", local = T)
 names(response)[names(response) == 'ï..X_uuid'] <- "X_uuid"
+#PREPARE SAMPLING FRAMES AND STRATAS
+source("functions/2020/2_prepare_samplingframe.R", local = T)
+#' Prepare sampling frames and Strata names:
+#'     3.1 prepare columns in out of camp cluster level sampling frame
+#'     3.2 aggregate out-of-camp to stratum level
+#'     3.3.make strata id for in-camp sampling frame
+#'     3.4.combine the stratum sampling frames
+#'     3.5.add strata ids to the dataset
+#'     3.6. throw error if any don't match
 
 name <- "indiv_analysis"
 
-idp <- read.csv("input/2020/individual_analysis_files/idp.csv")
-returnee_dataset <-
-  read.csv("input/2020/individual_analysis_files/returnee.csv")
+##############################################################################
+idp <- samplingframe %>%
+  filter(popgroup == "idp_out_camp", !is.na(population))
+
+returnee <- samplingframe %>%
+  filter(popgroup == "returnee", !is.na(population))
 conversion <-
   read.csv("input/2020/individual_analysis_files/conversion_name.csv",
            encoding = "UTF-8")
-camp <-
-  read.csv(
-    "input/2020/individual_analysis_files/Camp_Master_List_and_Population_Flow_September_2020.csv",
-    encoding = "UTF-8"
-  )
+camp <- samplingframe_in_camp %>%
+  mutate(camp_name = gsub("idp_in_camp", "", stratum)) %>%
+  filter(!is.na(population))
 
-#ADJUST WRONG NAMES INCAMP
-response$district_mcna <-
-  ifelse(response$district_mcna == "al.hinidya",
-         "al.hindiya",
-         response$district_mcna)
-response$district_mcna <-
-  ifelse(response$district_mcna == "falluja",
-         "al.falluja",
-         response$district_mcna)
 
 loop$district <-
   response$district_mcna[match(loop$X_uuid, response$X_uuid)]
+loop$camp_name <-
+  response$camp_name[match(loop$X_uuid, response$X_uuid)]
+
 loop$population_group <-
   response$population_group[match(loop$X_uuid, response$X_uuid)]
 loop$all <- "all"
 
-## matching the districts of the MCNA and the CCCM
-## and then calculating the total individuals who live in those camps that are assessed
+##calculating the total individuals who live in those camps that are assessed
+camp$district <-
+  response$district_mcna[match(camp$camp_name, response$camp_name)]
 idp_in_camp_pop <- camp %>%
-  mutate(district = conversion$X.U.FEFF.district_mcna[match(camp$District, conversion$admin2Name_en)])
-idp_in_camp_pop <- idp_in_camp_pop %>%
   group_by(district) %>%
-  summarize(population = sum(Total.no.of.individuals, na.rm = TRUE))
+  summarize(population = sum(population))
 
-idp_in_camp_pop <-
-  idp_in_camp_pop %>% filter(!is.na(district), population != 0, district %in% loop$district[which(loop$population_group == "idp_in_camp")])
 ## calculating the total of individuals who live out of camps
 ## and matching the district names between DTM and MCNA
+
 idp_out_camp_pop <- idp %>%
-  mutate(
-    individual_out_camp = sum_row(
-      Host.families,
-      Hotel.Motel.or.short.term.rental,
-      Own.Property,
-      Rental..Habitable.,
-      Rental..Uninhabitable.,
-      Informal.settlements,
-      Unfinished.Abandoned.building,
-      Non.residential.structure,
-      School.building,
-      Religious.building,
-      Other.formal.settlements..collective.centres,
-      Other.shelter,
-      Unknown.shelter.type
-    ),
-    district = conversion$X.U.FEFF.district_mcna[match(idp$District, conversion$district_iom)]
-  )
-
-idp_out_camp_pop <- idp_out_camp_pop %>%
   group_by(district) %>%
-  summarize(population = sum(individual_out_camp, na.rm = TRUE))
-idp_out_camp_pop <-
-  idp_out_camp_pop %>% filter(!is.na(district), population != 0, district %in% loop$district[which(loop$population_group == "idp_out_camp")])
+  summarize(population = sum(population, na.rm = TRUE))
 
-
-returnee_pop <- returnee_dataset %>%
-  mutate(district = conversion$X.U.FEFF.district_mcna[match(returnee_dataset$District, conversion$district_iom)])
-
-returnee_pop <- returnee_pop %>%
+returnee_pop <- returnee %>%
   group_by(district) %>%
-  summarize(population = sum(Individuals, na.rm = TRUE))
+  summarize(population = sum(population, na.rm = TRUE))
 
 returnee_pop <-
   returnee_pop %>% filter(!is.na(district), population != 0, district %in% loop$district[which(loop$population_group == "returnee")])
@@ -108,6 +84,7 @@ returnee_pop$stratum <- paste0(returnee_pop$district, "returnee")
 
 ind_sampling_frame <-
   rbind(idp_in_camp_pop, idp_out_camp_pop, returnee_pop)
+##############################################################################
 
 # MERGE QUESTIONNAIRES
 questionnaire <-
@@ -129,6 +106,22 @@ loop <- loop %>%
       TRUE ~ NA_real_
     )
   )
+
+loop$access_healthcare_hour <- ifelse(
+      response$distance_hospital[match(loop$X_uuid, response$X_uuid)] %in% c("less_15", "less_30", "less_hour") |
+        response$distance_clinic[match(loop$X_uuid, response$X_uuid)] %in% c("less_15", "less_30", "less_hour"),
+      1,
+      0
+    )
+loop$access_healthcare_services_hour <- ifelse(
+      response$distance_hospital[match(loop$X_uuid, response$X_uuid)] %in% c("less_15", "less_30", "less_hour") &
+        response$hospital_emergency_ser[match(loop$X_uuid, response$X_uuid)] == "yes" &
+        response$hospital_maternity_ser[match(loop$X_uuid, response$X_uuid)] == "yes" &
+        response$hospital_pediatric_ser[match(loop$X_uuid, response$X_uuid)] == "yes" &
+        response$hospital_surgical_ser[match(loop$X_uuid, response$X_uuid)] == "yes" ,
+      1,
+      0
+    )
 
 #STRATA WEIGHTING
 strata_weight_fun <-
@@ -210,22 +203,22 @@ if (analysisplan$repeat.for.variable == "district" &
     analysisplan$independent.variable == "population_group") {
   for (i in 1:length(groups)) {
     subset <-
-      summary[which(summary$independent.var.value == groups[i]), ]
+      summary[which(summary$independent.var.value == groups[i]),]
     df <- data.frame(district = unique(ind_sampling_frame$district))
     vars <- unique(subset$dependent.var)
     districts <- unique(subset$repeat.var.value)
     n_pop <-
       pop_numbers[, c("district", paste0(groups[i]), "total")]
     df <- left_join(df, n_pop, by = "district")
-    df <- df[complete.cases(df), ]
+    df <- df[complete.cases(df),]
     for (j in 1:length(vars)) {
-      var_result <- subset[which(subset$dependent.var == vars[j]),]
+      var_result <- subset[which(subset$dependent.var == vars[j]), ]
       df[, vars[j]] <-
         var_result[match(df$district, var_result$repeat.var.value), "numbers"]
       df[, sprintf("Number_of_%s", vars[j])] <-
         as.numeric(df[, vars[j]]) * as.numeric(df[, paste0(groups[i])])
     }
-    df <- df[ncol(df) - rowSums(is.na(df)) > 3,]
+    df <- df[ncol(df) - rowSums(is.na(df)) > 3, ]
     df <-
       left_join(df, conversion, by = c("district" = "X.U.FEFF.district_mcna"))
     write_excel_csv(df,
@@ -235,13 +228,13 @@ if (analysisplan$repeat.for.variable == "district" &
            analysisplan$independent.variable == "population_group") {
   for (i in 1:length(groups)) {
     subset <-
-      summary[which(summary$independent.var.value == groups[i]), ]
+      summary[which(summary$independent.var.value == groups[i]),]
     vars <- unique(subset$dependent.var)
     df <-
       tot[, c(paste0(groups[i]), "total")]
-    df <- df[complete.cases(df), ]
+    df <- df[complete.cases(df),]
     for (j in 1:length(vars)) {
-      var_result <- subset[which(subset$dependent.var == vars[j]),]
+      var_result <- subset[which(subset$dependent.var == vars[j]), ]
       df[, vars[j]] <-
         var_result[, "numbers"]
       df[, sprintf("Number_of_%s", vars[j])] <-
@@ -257,15 +250,15 @@ if (analysisplan$repeat.for.variable == "district" &
   districts <- unique(summary$repeat.var.value)
   n_pop <- pop_numbers[, c("district", "total")]
   df <- left_join(df, n_pop, by = "district")
-  df <- df[complete.cases(df), ]
+  df <- df[complete.cases(df),]
   for (j in 1:length(vars)) {
-    var_result <- summary[which(summary$dependent.var == vars[j]),]
+    var_result <- summary[which(summary$dependent.var == vars[j]), ]
     df[, vars[j]] <-
       var_result[match(df$district, var_result$repeat.var.value), "numbers"]
     df[, sprintf("Number_of_%s", vars[j])] <-
       as.numeric(df[, vars[j]]) * as.numeric(df[, "total"])
   }
-  df <- df[ncol(df) - rowSums(is.na(df)) > 3,]
+  df <- df[ncol(df) - rowSums(is.na(df)) > 3, ]
   df <-
     left_join(df, conversion, by = c("district" = "X.U.FEFF.district_mcna"))
   write_excel_csv(df, "output/2020/individual/district_all.csv")
@@ -274,7 +267,7 @@ if (analysisplan$repeat.for.variable == "district" &
   vars <- unique(summary$dependent.var)
   df <- tot
   for (j in 1:length(vars)) {
-    var_result <- summary[which(summary$dependent.var == vars[j]),]
+    var_result <- summary[which(summary$dependent.var == vars[j]), ]
     df[, vars[j]] <- var_result[, "numbers"]
     df[, sprintf("Number_of_%s", vars[j])] <-
       as.numeric(df[, vars[j]]) * as.numeric(df[, "total"])

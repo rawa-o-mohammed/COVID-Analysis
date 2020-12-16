@@ -17,11 +17,11 @@ samplingframe_strata <- rbind(samplingframe[,c("stratum", "population")],samplin
 
 #ADD STRATA NAMES TO DATA 
 response <- response %>%
-  mutate(district = ifelse(district == "al.hinidya", "al.hindiya", ifelse(district == "falluja", "al.falluja", district)))
+  mutate(district_mcna = ifelse(district_mcna == "al.hinidya", "al.hindiya", ifelse(district_mcna == "falluja", "al.falluja", district_mcna)))
 
 ##OUT OF CAMP:
 response <- response %>% 
-  mutate(strata = paste0(district,population_group))
+  mutate(strata = paste0(district_mcna,population_group))
 
 ##INCAMP (REPLACE DISTRICT WITH CAMP NAME FOR ALL INCAMP ENTRIES)
 response <- response[!is.na(response$population_group), ]

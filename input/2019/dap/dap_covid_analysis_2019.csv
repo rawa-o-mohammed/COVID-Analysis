@@ -18,10 +18,8 @@ Food Security,% HH relying on stress / crisis / emergency strategies to cope wit
 Food Security,"% of HH spending more than 40% of their total expenditure on food
 (for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)","% of HH spending more than 40% of their total expenditure on food
 (for 2020 we'd also need the percentages for the following percentage categories: 0%-9.9%, 10%-19.9%, 20%-29.9%......)",district,country,categorical,c17,categorical,direct_reporting
-Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_i,categorical,direct_reporting
-Protection,Number of children with psychosocial distress (proxy data with behaviour change),Number of children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18_ii,numerical,direct_reporting
-Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_i,categorical,direct_reporting
-Protection,Number of adults with psychosocial distress (proxy data with behavior change),Number of adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19_ii,numerical,direct_reporting
+Protection,% HH with children with psychosocial distress (proxy data with behaviour change),% HH with children with psychosocial distress (proxy data with behaviour change),district,country,categorical,c18,categorical,direct_reporting
+Protection,% HH with adults with psychosocial distress (proxy data with behavior change),% HH with adults with psychosocial distress (proxy data with behavior change),district,country,categorical,c19,categorical,direct_reporting
 Protection,% HHs with at least one person (adult OR child) with signs of psychosocial distress,% HHs with at least one person (adult OR child) with signs of psychosocial distress,district,country,categorical,c20,categorical,direct_reporting
 Livelihoods,% HH with at least one adult (18+) unemployed and seeking work,% HH with at least one adult (18+) unemployed and seeking work,district,country,categorical,c21,categorical,direct_reporting
 Livelihoods,% HH with at least one person under (<18) working,% HH with at least one person under (<18) working,district,country,categorical,c22,categorical,direct_reporting
@@ -39,9 +37,10 @@ Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.
 Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Clothing,district,country,categorical,c30_2_v,categorical,direct_reporting
 Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Purchasing productive assets,district,country,categorical,c30_2_vi,categorical,direct_reporting
 Protection,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c32,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Lack of funds to pay rental costs,district,country,categorical,c33_i,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Host family no longer able to host our family,district,country,categorical,c33_ii,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),No valid tenancy agreement,district,country,categorical,c33_iii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Lack of funds to pay rental costs,district,country,categorical,c33_i,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Host family no longer able to host our family,district,country,categorical,c33_ii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,No valid tenancy agreement,district,country,categorical,c33_iii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Owner Request,district,country,categorical,c33_iv,categorical,direct_reporting
 AAP,% HH reporting to have received aid ,% HH reporting to have received aid ,district,country,categorical,c37,categorical,direct_reporting
 AAP,% HH reporting to have received aid ,Healthcare,district,country,categorical,c38,categorical,direct_reporting
 AAP,% HH satsified with aid received ,% HH satsified with aid received ,district,country,categorical,c39,categorical,direct_reporting
@@ -56,7 +55,6 @@ Livelihoods,% of households with at least one adult unemployed by barrier ,"Incr
 Livelihoods,% of households with at least one adult unemployed by barrier ,Lack of family/personal connections,district,country,categorical,c47_ii,categorical,direct_reporting
 Livelihoods,% of households with at least one adult unemployed by barrier ,Underqualified for available jobs,district,country,categorical,c47_iii,categorical,direct_reporting
 Livelihoods,% of households with at least one adult unemployed by barrier ,Physical distance to jobs,district,country,categorical,c47_iv,categorical,direct_reporting
-Livelihoods,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c48,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,Cost of services and/or medicine was too high,district,country,categorical,c49_i,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,No medicine available at health facility/pharmacy,district,country,categorical,c49_ii,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,Required treatment was not available at health facility,district,country,categorical,c49_iii,categorical,direct_reporting

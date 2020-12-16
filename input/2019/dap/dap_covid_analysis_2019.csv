@@ -37,9 +37,10 @@ Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt.
 Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Clothing,district,country,categorical,c30_2_v,categorical,direct_reporting
 Livelihoods,% HH reporting [reason] as the primary reason behind taking on debt. ,Purchasing productive assets,district,country,categorical,c30_2_vi,categorical,direct_reporting
 Protection,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c32,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Lack of funds to pay rental costs,district,country,categorical,c33_i,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),Host family no longer able to host our family,district,country,categorical,c33_ii,categorical,direct_reporting
-Protection,% HH reporting [reason] as a risk for eviction (analysed for all three years),No valid tenancy agreement,district,country,categorical,c33_iii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Lack of funds to pay rental costs,district,country,categorical,c33_i,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Host family no longer able to host our family,district,country,categorical,c33_ii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,No valid tenancy agreement,district,country,categorical,c33_iii,categorical,direct_reporting
+Protection,% HH reporting [reason] as a risk for eviction,Owner Request,district,country,categorical,c33_iv,categorical,direct_reporting
 AAP,% HH reporting to have received aid ,% HH reporting to have received aid ,district,country,categorical,c37,categorical,direct_reporting
 AAP,% HH reporting to have received aid ,Healthcare,district,country,categorical,c38,categorical,direct_reporting
 AAP,% HH satsified with aid received ,% HH satsified with aid received ,district,country,categorical,c39,categorical,direct_reporting
@@ -54,7 +55,6 @@ Livelihoods,% of households with at least one adult unemployed by barrier ,"Incr
 Livelihoods,% of households with at least one adult unemployed by barrier ,Lack of family/personal connections,district,country,categorical,c47_ii,categorical,direct_reporting
 Livelihoods,% of households with at least one adult unemployed by barrier ,Underqualified for available jobs,district,country,categorical,c47_iii,categorical,direct_reporting
 Livelihoods,% of households with at least one adult unemployed by barrier ,Physical distance to jobs,district,country,categorical,c47_iv,categorical,direct_reporting
-Livelihoods,% HHs reporting risk of eviction,% HHs reporting risk of eviction,district,country,categorical,c48,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,Cost of services and/or medicine was too high,district,country,categorical,c49_i,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,No medicine available at health facility/pharmacy,district,country,categorical,c49_ii,categorical,direct_reporting
 Healthcare,% HH reporting [type of difficulty] in accessing health services,Required treatment was not available at health facility,district,country,categorical,c49_iii,categorical,direct_reporting

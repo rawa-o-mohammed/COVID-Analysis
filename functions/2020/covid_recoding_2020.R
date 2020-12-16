@@ -1,69 +1,71 @@
-
 covid_recoding_2020 <- function(df, loop) {
-  #please check - requires validation
   df$a0 <- case_when(df$property_damaged == "yes" ~ 1,
                      df$property_damaged == "no" ~ 0,
                      TRUE ~ NA_real_)
-  #please check - requires validation
+  
   df$a1 <-
     case_when(
       df$a0 == 1 & df$aware_compensation == "yes" ~ 1,
       is.na(df$a0) | df$a0 == 0 ~ NA_real_,
       TRUE ~ 0
     )
+  
   #please check - requires validation
   df$a2 <- case_when(
     df$a0 == 1 & df$applied_compensation == "yes" ~ 1,
-    is.na(df$a0) | df$a0 == 0 ~ NA_real_,
+    is.na(df$a0) |
+      df$a0 == 0 | is.na(df$applied_compensation) ~ NA_real_,
     TRUE ~ 0
   )
   #please check - requires validation
   df$a3 <- case_when(
     df$a0 == 1 & df$received_compensation == "yes" ~ 1,
-    is.na(df$a0) | df$a0 == 0 ~ NA_real_,
+    is.na(df$a0) |
+      df$a0 == 0 | is.na(df$received_compensation) ~ NA_real_,
     TRUE ~ 0
   )
-  #please check - requires validation
+  
   df$a4 <- case_when(
     df$unsafe_areas.facilities == 1 ~ 1,
     df$unsafe_areas.facilities == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
   df$a5 <- case_when(df$unsafe_areas.markets == 1 ~ 1,
                      df$unsafe_areas.markets == 0 ~ 0,
                      TRUE ~ NA_real_)
-  #please check - requires validation
+  
   df$a6 <- case_when(
     df$unsafe_areas.distribution_areas == 1 ~ 1,
     df$unsafe_areas.distribution_areas == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
+  
   df$a7 <- case_when(
     df$unsafe_areas.water_points == 1 ~ 1,
     df$unsafe_areas.water_points == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
   df$a8 <- case_when(
     df$unsafe_areas.social_areas == 1 ~ 1,
     df$unsafe_areas.social_areas == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
   df$a9 <- case_when(
     df$unsafe_areas.way_to_school == 1 ~ 1,
     df$unsafe_areas.way_to_school == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
   df$a10 <- case_when(
     df$unsafe_areas.way_to_centers == 1 ~ 1,
     df$unsafe_areas.way_to_centers == 0 ~ 0,
     TRUE ~ NA_real_
   )
-  #please check - requires validation
+  
   df$a11 <- case_when((
     df$a4 == 1 |
       df$a5 == 1 |
@@ -77,6 +79,7 @@ covid_recoding_2020 <- function(df, loop) {
   df$gender_respondent == "female" ~ 0,
   TRUE ~ NA_real_
   )
+  
   df$a12 <-
     ifelse(
       df$distance_hospital %in% c("less_15", "less_30") |
@@ -84,12 +87,13 @@ covid_recoding_2020 <- function(df, loop) {
       1,
       0
     )
+  
   df$a13 <-
     ifelse(df$access_soap == "yes" &
              df$use_of_soap.handwashing == 1,
            1,
            0)
-  #please check - requires validation
+  
   df$a14 <- ifelse(
     df$health_barriers.civ_docs_problems == 1 |
       df$health_barriers.cost == 1 |
@@ -105,8 +109,7 @@ covid_recoding_2020 <- function(df, loop) {
     1,
     0
   )
-
-  #please check - requires validation
+  
   df$a15_i <-
     case_when(
       df$distance_hospital == "less_15" &
@@ -135,7 +138,6 @@ covid_recoding_2020 <- function(df, loop) {
     )
   
   
-  #please check - requires validation
   df$a15_iv <-
     case_when(
       df$distance_hospital %in% c("less_3hours", "more_3hours") &
@@ -143,24 +145,8 @@ covid_recoding_2020 <- function(df, loop) {
       df$hospital_emergency_ser %in% c("do_not_know", "no") ~ NA_real_,
       TRUE ~ 0
     )
-
-  #please check - requires validation
-  df$c7 <-
-    ifelse(
-      df$distance_hospital %in% c("less_15", "less_30", "less_hour") |
-        df$distance_clinic %in% c("less_15", "less_30", "less_hour"),
-      df$num_hh_member,
-      0
-    )
-  #please check - requires validation
-  df$c8 <-
-    ifelse(
-      df$distance_hospital %in% c("less_15", "less_30", "less_hour") |
-        df$distance_clinic %in% c("less_15", "less_30", "less_hour"),
-      df$num_hh_member,
-      df$num_hh_member * -1
-    )
   
+  #c7, c8 and c10 are moved to the individual analysis
   df$c9 <-
     ifelse(
       df$distance_hospital %in% c("less_15", "less_30", "less_hour") |
@@ -168,19 +154,7 @@ covid_recoding_2020 <- function(df, loop) {
       1,
       0
     )
-
-  #please check - requires validation
-  df$c10 <-
-    ifelse(
-      df$distance_hospital %in% c("less_15", "less_30", "less_hour") &
-        df$hospital_emergency_ser == "yes" &
-        df$hospital_maternity_ser == "yes" &
-        df$hospital_pediatric_ser == "yes" &
-        df$hospital_surgical_ser == "yes",
-      df$num_hh_member,
-      df$num_hh_member * -1
-    )
-
+  
   df$c11_i <- df$health_barriers.cost
   df$c11_ii <- df$health_barriers.phc_closed
   df$c11_iii <- df$health_barriers.distance_to_treatmentcenter
@@ -192,25 +166,25 @@ covid_recoding_2020 <- function(df, loop) {
              df$use_of_soap.handwashing == 1,
            1,
            0)
-  #please check - requires validation
-  df$c12_ii <-
+
+    df$c12_ii <-
     ifelse(df$access_soap == "yes" &
              df$use_of_soap.bathing == 1,
            1,
            0)
-  #please check - requires validation
-  df$c12_iii <-
+
+    df$c12_iii <-
     ifelse(df$access_soap == "yes" &
              df$use_of_soap.laundry == 1,
            1,
            0)
-  #please check - requires validation
-  df$c12_iv <-
+
+    df$c12_iv <-
     ifelse(df$access_soap == "yes" &
              df$use_of_soap.dish_washing == 1,
            1,
            0)
-  #please check - requires validation
+
   df$c12_v <-
     ifelse(df$access_soap == "yes" &
              df$use_of_soap.not == 1,
@@ -273,8 +247,16 @@ covid_recoding_2020 <- function(df, loop) {
       (df$food_share > 0.65 & df$food_share <= 0.75) ~ 3,
       TRUE ~ 4
     )
+  
   df$fcs_strategies <-
-    case_when(df$fcs < 21 ~ 4, between(df$fcs, 21, 35) ~ 3, TRUE ~ 1)
+    case_when(df$fcs <= 28 ~ 4, (df$fcs > 28 &
+                                   df$fcs <= 42) ~ 3, TRUE ~ 1)
+  df$mean_coping_capacity <-
+    mean_row(df$livelihood_strategies,
+             df$food_share_strategies,
+             na.rm = TRUE)
+  df$c14 <-
+    round2(mean_row(df$mean_coping_capacity, df$fcs_strategies, na.rm = TRUE))
   
   #please check - requires validation
   df$c15_i <- ifelse(df$fcs_strategies == 4, 1, 0)
@@ -283,42 +265,24 @@ covid_recoding_2020 <- function(df, loop) {
   #please check - requires validation
   df$c15_iii <- ifelse(df$fcs_strategies == 1, 1, 0)
   
-  df$mean_coping_capacity <-
-    mean_row(df$livelihood_strategies,
-             df$food_share_strategies,
-             na.rm = TRUE)
-  df$c14 <-
-    round2(mean_row(df$mean_coping_capacity, df$fcs_strategies, na.rm = TRUE))
-  
   df$health_share <- df$medical_exp / df$tot_expenses
   
-  #please check - requires validation
   df$t1 <- ifelse(df$c14 == 1, 1, 0)
-  #please check - requires validation
   df$t2 <- ifelse(df$c14 == 2, 1, 0)
-  #please check - requires validation
   df$t3 <- ifelse(df$c14 == 3, 1, 0)
-  #please check - requires validation
   df$t4 <- ifelse(df$c14 == 4, 1, 0)
-  #please check - requires validation
   df$t5 <- ifelse(df$c14 >= 3, 1, 0)
-  #please check - requires validation
   df$t6 <-
     ifelse(df$crisis == 1 |
              df$stress == 1 | df$emergency == 1, 1, 0)
-  #please check - requires validation
   df$t8 <- ifelse(df$health_share >= 0.2, 1, 0)
-  #please check - requires validation
   df$t9 <-
     ifelse(df$health_share >= 0 & df$health_share < 0.1, 1, 0)
-  #please check - requires validation
   df$t10 <-
     ifelse(df$health_share >= 0.1 & df$health_share < 0.3, 1, 0)
-  #please check - requires validation
   df$t11 <- ifelse(df$health_share >= 0.3, 1, 0)
-  #please check - requires validation
-  df$t12 <-
-    ifelse(df$injured_explosive %in% c("killed", "injured"), 1, 0)
+
+  #df$t12 wasn't needed and not used in the FS, so it's deleted
   ############################c16 ###############################################
   
   df$c16_i <-
@@ -358,28 +322,20 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c17 ###############################################
   
-  #please check - requires validation
   df$c17 <-
     ifelse(df$food_share >= 0.4, 1, 0)
-  #please check - requires validation
   df$c17_i <-
     ifelse(df$food_share >= 0 & df$food_share < 0.2, 1, 0)
-  #please check - requires validation
   df$c17_ii <-
-    ifelse(df$food_share >= 0.2 & df$food_share < 0.4, 1, 0)
-  #please check - requires validation
   df$c17_iii <-
     ifelse(df$food_share >= 0.4 & df$food_share < 0.6, 1, 0)
-  #please check - requires validation
   df$c17_iv <-
     ifelse(df$food_share >= 0.6 & df$food_share < 0.8, 1, 0)
-  #please check - requires validation
   df$c17_v <-
     ifelse(df$food_share >= 0.8 & df$food_share <= 1, 1, 0)
   
   ############################c18 ###############################################
   
-  #please check - requires validation
   df$c18 <- case_when(
     df$child_distress_number > 0 ~ 1,
     df$child_distress_number == 0 |
@@ -387,6 +343,7 @@ covid_recoding_2020 <- function(df, loop) {
     TRUE ~ NA_real_
   )
   
+  #df$c18_ii was moved to the individual analysis
   ############################c19 ###############################################
   
   #please check - requires validation
@@ -397,6 +354,7 @@ covid_recoding_2020 <- function(df, loop) {
     TRUE ~ NA_real_
   )
   
+  #df$c19_ii was moved to the individual analysis
   ############################c21 ###############################################
   
   df$c21 <-
@@ -427,20 +385,17 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c23 ###############################################
   
-  #please check - requires validation
   df$c23_i   <-
     df$employment_primary_barriers.increased_competition
-  #please check - requires validation
   df$c23_ii  <- df$employment_primary_barriers.jobs_far
-  #please check - requires validation
   df$c23_iii <-
     df$employment_primary_barriers.only_low_available
-  #please check - requires validation
   df$c23_iv  <- df$employment_primary_barriers.lack_jobs_women
   
   ############################c24 ###############################################
   
   #please check - requires validation
+  #the dap updated
   df$c24_i <-
     case_when(
       df$inc_employment_pension < 480000 ~ 1,
@@ -448,6 +403,7 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   #please check - requires validation
+  #the dap updated
   df$c24_ii <-
     case_when(
       df$inc_employment_pension >= 480000 &
@@ -458,6 +414,7 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   #please check - requires validation
+  #the dap updated
   df$c24_iii <-
     case_when(
       df$inc_employment_pension >= 800000 ~ 1,
@@ -481,7 +438,6 @@ covid_recoding_2020 <- function(df, loop) {
         is.na(df$gender_hhh)  ~ NA_real_,
       TRUE ~ 0
     )
-  #please check - requires validation
   df$c25_i <-
     case_when(
       df$inc_employment_pension < 480000 &
@@ -490,7 +446,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c25_ii <-
     case_when(
       df$inc_employment_pension >= 480000 &
@@ -503,7 +458,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c25_iii <-
     case_when(
       df$inc_employment_pension >= 800000 &
@@ -523,22 +477,16 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c28 ###############################################
   df$rent_share <- df$rent / df$tot_expenses
-  #please check - requires validation
   df$c28 <-
     ifelse(df$rent_share >= 0.3, 1, 0)
-  #please check - requires validation
   df$c28_i <-
     ifelse(df$rent_share >= 0 & df$rent_share < 0.2, 1, 0)
-  #please check - requires validation
   df$c28_ii <-
     ifelse(df$rent_share >= 0.2 & df$rent_share < 0.4, 1, 0)
-  #please check - requires validation
   df$c28_iii <-
     ifelse(df$rent_share >= 0.4 & df$rent_share < 0.6, 1, 0)
-  #please check - requires validation
   df$c28_iv <-
     ifelse(df$rent_share >= 0.6 & df$rent_share < 0.8, 1, 0)
-  #please check - requires validation
   df$c28_v <-
     ifelse(df$rent_share >= 0.8 & df$rent_share <= 1, 1, 0)
   
@@ -546,11 +494,13 @@ covid_recoding_2020 <- function(df, loop) {
   ############################c29 ###############################################
   
   #please check - requires validation
+  #the dap updated
   df$c29_i <-
     case_when(df$how_much_debt >= 1000000 ~ 1,
               df$how_much_debt < 1000000 ~ 0,
               TRUE ~ NA_real_)
   #please check - requires validation
+  #the dap updated
   df$c29_ii <-
     case_when(
       df$how_much_debt >= 505000 &
@@ -560,11 +510,13 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   #please check - requires validation
+  #the dap updated
   df$c29_iii <-
     case_when(df$how_much_debt < 505000 ~ 1,
               df$how_much_debt >= 505000 ~ 0,
               TRUE ~ NA_real_)
   #please check - requires validation
+  #the dap updated
   df$c29 <- ifelse(df$how_much_debt > 505000, 1, 0)
   
   ############################c30 ###############################################
@@ -579,20 +531,14 @@ covid_recoding_2020 <- function(df, loop) {
       0
     )
   
-  #please check - requires validation
   df$c30_2_i <-
     ifelse(df$reasons_for_debt == "basic_hh_expenditure", 1, 0)
-  #please check - requires validation
   df$c30_2_ii <- ifelse(df$reasons_for_debt == "health", 1, 0)
-  #please check - requires validation
   df$c30_2_iii <- ifelse(df$reasons_for_debt == "food", 1, 0)
-  #please check - requires validation
   df$c30_2_iv <-
     ifelse(df$reasons_for_debt == "education", 1, 0)
-  #please check - requires validation
   df$c30_2_v <-
     ifelse(df$reasons_for_debt == "clothing", 1, 0)
-  #please check - requires validation
   df$c30_2_vi <-
     ifelse(df$reasons_for_debt == "purchase_pro_assets", 1, 0)
   
@@ -603,9 +549,14 @@ covid_recoding_2020 <- function(df, loop) {
                      0)
   
   #please check - requires validation
-  df$c31_2 <- df$covid_loss_job_permanent
+  df$c31_2 <- case_when(df$covid_loss_job_permanent > 0 ~ 1,
+                        df$covid_loss_job_permanent == 0 ~ 0,
+                        TRUE ~ 0)
+  
   #please check - requires validation
-  df$c31_3 <- df$covid_loss_job_temp
+  df$c31_3 <- case_when(df$covid_loss_job_temp > 0 ~ 1,
+                        df$covid_loss_job_temp == 0 ~ 0,
+                        TRUE ~ 0)
   
   ############################c32 ###############################################
   
@@ -616,40 +567,84 @@ covid_recoding_2020 <- function(df, loop) {
   ############################c33 ###############################################
   
   #please check - requires validation
-  df$c33_i   <- df$hh_main_risks.lack_funds
+  df$c33_i   <- 
+    case_when(
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.lack_funds == 1 ~ 1,
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.lack_funds == 0 ~ 0,
+      TRUE ~ NA_real_
+    )
   #please check - requires validation
-  df$c33_ii  <- df$hh_main_risks.no_longer_hosted
+  df$c33_ii  <-
+    case_when(
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.no_longer_hosted == 1 ~ 1,
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.no_longer_hosted == 0 ~ 0,
+      TRUE ~ NA_real_
+    )
   #please check - requires validation
-  df$c33_iii <- df$hh_main_risks.no_agreement
+  df$c33_iii <-
+    case_when(
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.no_agreement == 1 ~ 1,
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.no_agreement == 0 ~ 0,
+      TRUE ~ NA_real_
+    )
   #please check - requires validation
-  df$c33_iv <- df$hh_main_risks.owner_request
+  df$c33_iv <-
+    case_when(
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.owner_request == 1 ~ 1,
+      df$hh_risk_eviction == "yes" &
+        df$hh_main_risks.owner_request == 0 ~ 0,
+      TRUE ~ NA_real_
+    )
+  
   
   ############################c34 ###############################################
   
-  #please check - requires validation
   df$c34_i  <- df$info_aid.healthcare
-  #please check - requires validation
   df$c34_ii <- df$info_aid.aid
   
   ############################c35 ###############################################
   
-  #please check - requires validation
   df$c35_1     <- ifelse(df$covid_info_need == "yes", 1, 0)
+  
   #please check - requires validation
-  df$c35_2_i   <- ifelse(df$covid_info_type.causes == 1, 1, 0)
+  df$c35_2_i   <-
+    case_when(df$covid_info_type.causes == 1 & df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   #please check - requires validation
-  df$c35_2_ii  <- ifelse(df$covid_info_type.signs == 1, 1, 0)
+  df$c35_2_ii  <-
+    case_when(df$covid_info_type.signs == 1 & df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   #please check - requires validation
   df$c35_2_iii <-
-    ifelse(df$covid_info_type.prevention == 1, 1, 0)
+    case_when(df$covid_info_type.prevention == 1 &
+                df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   #please check - requires validation
   df$c35_2_iv  <-
-    ifelse(df$covid_info_type.treatment == 1, 1, 0)
+    case_when(df$covid_info_type.treatment == 1 & df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   #please check - requires validation
   df$c35_2_v   <-
-    ifelse(df$covid_info_type.consequences == 1, 1, 0)
+    case_when(df$covid_info_type.consequences == 1 &
+                df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   #please check - requires validation
-  df$c35_2_vi  <- ifelse(df$covid_info_type.other == 1, 1, 0)
+  df$c35_2_vi  <-
+    case_when(df$covid_info_type.other == 1 & df$c35_1 == 1 ~ 1,
+              df$c35_1 == 1 ~ 0,
+              TRUE ~ NA_real_)
   
   ############################c36 ###############################################
   
@@ -691,7 +686,6 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c39 ###############################################
   
-  #please check - requires validation
   df$c39 <-     case_when(df$aid_satisfaction == "yes" ~ 1,
                           is.na(df$aid_satisfaction) ~ NA_real_ ,
                           TRUE ~ 0)
@@ -699,7 +693,6 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c40 ###############################################
   
-  #please check - requires validation
   df$c40_i  <- case_when(
     df$aid_not_satisfied.quality == 1 ~ 1,
     (df$aid_received == "yes" &
@@ -707,7 +700,6 @@ covid_recoding_2020 <- function(df, loop) {
       df$aid_not_satisfied.quality == 0 ~ 0,
     TRUE ~  NA_real_
   )
-  #please check - requires validation
   df$c40_ii <- case_when(
     df$aid_not_satisfied.quantity == 1 ~ 1,
     (df$aid_received == "yes" &
@@ -715,7 +707,6 @@ covid_recoding_2020 <- function(df, loop) {
       df$aid_not_satisfied.quantity == 0 ~ 0,
     TRUE ~  NA_real_
   )
-  #please check - requires validation
   df$c40_iii <- case_when(
     df$aid_not_satisfied.delay == 1 ~ 1,
     (df$aid_received == "yes" &
@@ -723,7 +714,7 @@ covid_recoding_2020 <- function(df, loop) {
       df$aid_not_satisfied.delay == 0 ~ 0,
     TRUE ~  NA_real_
   )
-  #please check - requires validation
+
   df$c40_iv <- case_when(
     df$aid_not_satisfied.other == 1 ~ 1,
     (df$aid_received == "yes" &
@@ -734,7 +725,6 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c41 ###############################################
   
-  #please check - requires validation
   df$c41 <- case_when(
     df$complaint_mechanisms == "yes" ~ 1,
     df$complaint_mechanisms == "no"  ~ 0,
@@ -743,7 +733,6 @@ covid_recoding_2020 <- function(df, loop) {
   
   ############################c42 ###############################################
   
-  #please check - requires validation
   df$c42_i   <-
     case_when(
       df$restriction_clearance == "yes" &
@@ -752,7 +741,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_clearance_covid == "no" ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_ii  <-
     case_when(
       df$restriction_documents == "yes" &
@@ -761,7 +749,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_documents_covid == "no" ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_iii  <-
     case_when(
       df$restriction_time == "yes" &
@@ -770,7 +757,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_time_covid == "no" ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_iv   <-
     case_when(
       df$restriction_reason == "yes" &
@@ -779,7 +765,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_reason_covid == "no" ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_v  <-
     case_when(
       df$restriction_physical == "yes" &
@@ -788,11 +773,8 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_physical_covid == "no" ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
-  df$c42_vi <-
-    case_when(df$restriction_other == "yes" ~ 1,
-              df$restriction_other == "no" ~ 0,
-              TRUE ~ NA_real_)
+  #df42_vi has been removed as you said it wasn't related to covid
+  
   #please check - requires validation
   df$c42 <-
     case_when(
@@ -800,18 +782,15 @@ covid_recoding_2020 <- function(df, loop) {
         df$c42_ii == 1 |
         df$c42_iii == 1 |
         df$c42_iv == 1 |
-        df$c42_v == 1 |
-        df$c42_vi == 1 ~ 1,
+        df$c42_v == 1 ~ 1,
       df$c42_i == 0 &
         df$c42_ii == 0 &
         df$c42_iii == 0 &
         df$c42_iv == 0 &
-        df$c42_v == 0 &
-        df$c42_vi == 0 ~ 0,
+        df$c42_v == 0 ~ 0,
       TRUE ~ NA_real_
     )
   
-  #please check - requires validation
   df$c42_2_i   <-
     case_when(
       df$restriction_clearance == "yes" &
@@ -820,8 +799,8 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_clearance_covid %in% c("yes", "similar") ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
-  df$c42_2_ii  <-
+
+    df$c42_2_ii  <-
     case_when(
       df$restriction_documents == "yes" &
         df$restriction_documents_covid == "no" ~ 1,
@@ -829,7 +808,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_documents_covid %in% c("yes", "similar") ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_2_iii  <-
     case_when(
       df$restriction_time == "yes" &
@@ -838,7 +816,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_time_covid %in% c("yes", "similar") ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_2_iv   <-
     case_when(
       df$restriction_reason == "yes" &
@@ -847,7 +824,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_reason_covid %in% c("yes", "similar") ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_2_v  <-
     case_when(
       df$restriction_physical == "yes" &
@@ -856,12 +832,10 @@ covid_recoding_2020 <- function(df, loop) {
         df$restriction_physical_covid %in% c("yes", "similar") ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c42_2_vi <-
     case_when(df$restriction_other == "yes" ~ 1,
               df$restriction_other == "no" ~ 0,
               TRUE ~ NA_real_)
-  #please check - requires validation
   df$c42_2 <-
     case_when(
       df$c42_2_i == 1 |
@@ -895,7 +869,6 @@ covid_recoding_2020 <- function(df, loop) {
   df$c43_xiii <- df$primary_livelihood.illegal_activity
   df$c43_xiv <- df$primary_livelihood.zakat
   
-  #please check - requires validation
   df$c43_2_i <-
     case_when(
       df$primary_livelihood.savings == 1 & df$single_female_hhh == 1 ~ 1,
@@ -903,7 +876,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_ii  <-
     case_when(
       df$primary_livelihood.renting == 1 & df$single_female_hhh == 1 ~ 1,
@@ -911,7 +883,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_iii  <-
     case_when(
       df$primary_livelihood_employment == 1 &
@@ -920,7 +891,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_iv  <-
     case_when(
       df$primary_livelihood.remittences == 1 &
@@ -929,7 +899,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_v  <-
     case_when(
       df$primary_livelihood_retirement_pension == 1 &
@@ -938,7 +907,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_vi  <-
     case_when(
       df$primary_livelihood.selling_assets == 1 &
@@ -947,7 +915,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_vii  <-
     case_when(
       df$primary_livelihood.selling_assistance_received == 1 &
@@ -956,7 +923,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_viii  <-
     case_when(
       df$primary_livelihood.loans_debts == 1 &
@@ -965,7 +931,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_ix  <-
     case_when(
       df$primary_livelihood.modm_cash_assistance == 1 &
@@ -974,7 +939,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_x  <-
     case_when(
       df$primary_livelihood.support_from_community == 1 &
@@ -983,7 +947,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_xi  <-
     case_when(
       df$primary_livelihood.ngo_charity_assistance == 1 &
@@ -992,7 +955,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_xii  <-
     case_when(
       df$primary_livelihood.social_service == 1 &
@@ -1001,7 +963,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_xiii  <-
     case_when(
       df$primary_livelihood.illegal_activity == 1 &
@@ -1010,7 +971,6 @@ covid_recoding_2020 <- function(df, loop) {
         df$single_female_hhh == 1 ~ 0,
       TRUE ~ NA_real_
     )
-  #please check - requires validation
   df$c43_2_xiv  <-
     case_when(
       df$primary_livelihood.zakat == 1 & df$single_female_hhh == 1 ~ 1,
@@ -1020,7 +980,6 @@ covid_recoding_2020 <- function(df, loop) {
     )
   
   ##############################c44 ###########################################
-  #please check - requires validation
   df$c44_i <-
     case_when(
       df$distance_hospital == "less_15" |
@@ -1030,7 +989,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ 0
     )
   
-  #please check - requires validation
   df$c44_ii <-
     case_when(
       (
@@ -1046,7 +1004,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ 0
     )
   
-  #please check - requires validation
   df$c44_iii <-
     case_when(
       (
@@ -1062,7 +1019,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ 0
     )
   
-  #please check - requires validation
   df$c44_iv <-
     case_when(
       (
@@ -1077,7 +1033,6 @@ covid_recoding_2020 <- function(df, loop) {
         is.na(df$distance_clinic) ~ NA_real_,
       TRUE ~ 0
     )
-  #please check - requires validation
   df$c44_v <-
     case_when(
       (
@@ -1095,7 +1050,6 @@ covid_recoding_2020 <- function(df, loop) {
   
   df$c45 <- df$info_aid.healthcare
   
-  #please check - requires validation
   df$c46_i <-
     case_when(
       df$distance_hospital == "less_15" ~ 1,
@@ -1103,7 +1057,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   
-  #please check - requires validation
   df$c46_ii <-
     case_when(
       df$distance_hospital == "less_30" ~ 1,
@@ -1111,7 +1064,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   
-  #please check - requires validation
   df$c46_iii <-
     case_when(
       df$distance_hospital == "less_hour" ~ 1,
@@ -1119,7 +1071,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   
-  #please check - requires validation
   df$c46_iv <-
     case_when(
       df$distance_hospital == c("less_3hours") ~ 1,
@@ -1127,7 +1078,6 @@ covid_recoding_2020 <- function(df, loop) {
       TRUE ~ NA_real_
     )
   
-  #please check - requires validation
   df$c46_v <-
     case_when(
       df$distance_hospital == c("more_3hours") ~ 1,

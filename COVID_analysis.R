@@ -11,7 +11,7 @@ library(composr) # horziontal operations
 library(readr)
 library(readxl)
 
-aggregate <- "all"
+aggregate <- "district"
 disaggregate <- "all"
 
 dap_name <- "covid_analysis_2020"

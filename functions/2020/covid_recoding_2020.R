@@ -6,23 +6,21 @@ covid_recoding_2020 <- function(df, loop) {
   df$a1 <-
     case_when(
       df$a0 == 1 & df$aware_compensation == "yes" ~ 1,
-      is.na(df$a0) | df$a0 == 0 ~ NA_real_,
+      df$a0 == 1 & df$aware_compensation == "no" ~ 0,
       TRUE ~ 0
     )
   
   #please check - requires validation
   df$a2 <- case_when(
     df$a0 == 1 & df$applied_compensation == "yes" ~ 1,
-    is.na(df$a0) |
-      df$a0 == 0 | is.na(df$applied_compensation) ~ NA_real_,
-    TRUE ~ 0
+    df$a0 == 1 & df$applied_compensation == "no" ~ 0,
+    TRUE ~ NA_real_
   )
   #please check - requires validation
   df$a3 <- case_when(
     df$a0 == 1 & df$received_compensation == "yes" ~ 1,
-    is.na(df$a0) |
-      df$a0 == 0 | is.na(df$received_compensation) ~ NA_real_,
-    TRUE ~ 0
+    df$a0 == 1 & df$received_compensation == "no" ~ 0,
+    TRUE ~ NA_real_
   )
   
   df$a4 <- case_when(

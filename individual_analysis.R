@@ -167,80 +167,93 @@ lowest_stratification[grep("idp_out_camp", lowest_stratification$population_grou
 lowest_stratification[grep("returnee", lowest_stratification$population_group), "population_group"] <-
   "returnee"
 lowest_stratification$all <- "all"
-lowest_stratification <-
-  lowest_stratification[rowSums(is.na(lowest_stratification)) < 5, ]
 
+ind_sampling_frame_short <- ind_sampling_frame %>%
+  select(population, stratum) %>%
+  rename(total_population_strata = population)
 
-all_all <- lowest_stratification %>%
-  group_by(all) %>%
-  summarize(
-    avg_above64 = sum(n_above64) / sum(population),
-    avg_chronic_disease = sum(n_chronic_disease) / sum(population),
-    avg_above64_or_chronic = sum(n_above64_or_chronic) / sum(population),
-    avg_access_healthcare_hour = sum(n_access_healthcare_hour) /
-      sum(population),
-    avg_access_healthcare_services_hour = sum(n_access_healthcare_services_hour) /
-      sum(population),
-  )
-  
-popgroup_all <- lowest_stratification %>%
-  group_by(population_group) %>%
-  summarize(
-    avg_above64 = sum(n_above64) / sum(population),
-    avg_chronic_disease = sum(n_chronic_disease) / sum(population),
-    avg_above64_or_chronic = sum(n_above64_or_chronic) / sum(population),
-    avg_access_healthcare_hour = sum(n_access_healthcare_hour) /
-      sum(population),
-    avg_access_healthcare_services_hour = sum(n_access_healthcare_services_hour) /
-      sum(population),
+lowest_stratification <- lowest_stratification %>%
+  rename(total_population_data = population) %>%
+  left_join(ind_sampling_frame_short, by = c("strata" = "stratum"))  %>%
+  mutate(
+    n_above64_strata = round((n_above64 / total_population_data) * total_population_strata),
+    n_chronic_disease_strata = round((n_chronic_disease / total_population_data) * total_population_strata
+    ),
+    n_above64_or_chronic_strata = round((n_above64_or_chronic / total_population_data) * total_population_strata
+    ),
+    n_access_healthcare_hour_strata = round((n_access_healthcare_hour / total_population_data) * total_population_strata
+    ),
+    n_access_healthcare_services_hour_strata = round((n_access_healthcare_services_hour / total_population_data) * total_population_strata
+    )
   )
 
-district_all <- lowest_stratification %>%
+district <- lowest_stratification %>%
   group_by(district) %>%
-  summarize(
-    avg_above64 = sum(n_above64) / sum(population),
-    avg_chronic_disease = sum(n_chronic_disease) / sum(population),
-    avg_above64_or_chronic = sum(n_above64_or_chronic) / sum(population),
-    avg_access_healthcare_hour = sum(n_access_healthcare_hour) /
-      sum(population),
-    avg_access_healthcare_services_hour = sum(n_access_healthcare_services_hour) /
-      sum(population),
+  summarise(
+    num_above64 = sum(n_above64_strata),
+    num_chronic_disease = sum(n_chronic_disease_strata),
+    num_above64_or_chronic = sum(n_above64_or_chronic_strata),
+    num_access_healthcare_hour = sum(n_access_healthcare_hour_strata),
+    num_access_healthcare_services_hour = sum(n_access_healthcare_services_hour_strata),
+    total_population = sum(total_population_strata)
+  ) %>%
+  mutate(
+    avg_above64 = num_above64 / total_population,
+    avg_chronic_disease = num_chronic_disease / total_population,
+    avg_above64_or_chronic = num_above64_or_chronic / total_population,
+    avg_access_healthcare_hour = num_access_healthcare_hour / total_population,
+    avg_access_healthcare_services_hour = num_access_healthcare_services_hour /
+      total_population
   )
-all_all <- rename(all_all, strata = "all")
-popgroup_all <- rename(popgroup_all, strata = "population_group")
-district_all <- rename(district_all, strata = "district")
 
-result <- rbind(district_all, popgroup_all, all_all)
-
-all_all_sample <- ind_sampling_frame %>%
-  group_by(all) %>%
-  summarize(population = sum(population, na.rm = TRUE))
-
-popgroup_all_sample <- ind_sampling_frame %>%
+popgroup <- lowest_stratification %>%
   group_by(population_group) %>%
-  summarize(population = sum(population, na.rm = TRUE))
+  summarise(
+    num_above64 = sum(n_above64_strata),
+    num_chronic_disease = sum(n_chronic_disease_strata),
+    num_above64_or_chronic = sum(n_above64_or_chronic_strata),
+    num_access_healthcare_hour = sum(n_access_healthcare_hour_strata),
+    num_access_healthcare_services_hour = sum(n_access_healthcare_services_hour_strata),
+    total_population = sum(total_population_strata)
+  ) %>%
+  mutate(
+    avg_above64 = num_above64 / total_population,
+    avg_chronic_disease = num_chronic_disease / total_population,
+    avg_above64_or_chronic = num_above64_or_chronic / total_population,
+    avg_access_healthcare_hour = num_access_healthcare_hour / total_population,
+    avg_access_healthcare_services_hour = num_access_healthcare_services_hour /
+      total_population
+  )
 
-district_all_sample <- ind_sampling_frame %>%
-  group_by(district) %>%
-  summarize(population = sum(population, na.rm = TRUE))
+all <- lowest_stratification %>%
+  group_by(all) %>%
+  summarise(
+    num_above64 = sum(n_above64_strata),
+    num_chronic_disease = sum(n_chronic_disease_strata),
+    num_above64_or_chronic = sum(n_above64_or_chronic_strata),
+    num_access_healthcare_hour = sum(n_access_healthcare_hour_strata),
+    num_access_healthcare_services_hour = sum(n_access_healthcare_services_hour_strata),
+    total_population = sum(total_population_strata)
+  ) %>%
+  mutate(
+    avg_above64 = num_above64 / total_population,
+    avg_chronic_disease = num_chronic_disease / total_population,
+    avg_above64_or_chronic = num_above64_or_chronic / total_population,
+    avg_access_healthcare_hour = num_access_healthcare_hour / total_population,
+    avg_access_healthcare_services_hour = num_access_healthcare_services_hour /
+      total_population
+  )
 
-all_all_sample <- rename(all_all_sample, strata = "all")
-popgroup_all_sample <- rename(popgroup_all_sample, strata = "population_group")
-district_all_sample <- rename(district_all_sample, strata = "district")
+all <- rename(all, strata = "all")
+popgroup <- rename(popgroup, strata = "population_group")
+district <- rename(district, strata = "district")
 
-samplingframe <- rbind(district_all_sample, popgroup_all_sample, all_all_sample)
+result <- rbind(district, popgroup, all)
 
-result <- left_join(result, samplingframe, by = "strata")
-
-result <- result %>%
-  mutate(num_above64 = round(avg_above64 * population),
-         num_chronic_disease = round(avg_chronic_disease * population),
-         num_above64_or_chronic = round(avg_above64_or_chronic * population),
-         num_access_healthcare_hour = round(avg_access_healthcare_hour * population),
-         num_access_healthcare_services_hour = round(avg_access_healthcare_services_hour * population))
 
 result <- result[, c(1, 7, 2, 8, 3, 9, 4, 10, 5, 11, 6, 12)]
 
-result <- left_join(result, conversion, by = c("strata" = "X.U.FEFF.district_mcna"))
+result <-
+  left_join(result, conversion, by = c("strata" = "X.U.FEFF.district_mcna"))
 
 write_excel_csv(result, "output/2020/individual/individual_findings.csv")
